@@ -9,6 +9,7 @@ import { Role } from './_models';
 // const usersModule = () => import('./components/user/users.module').then(x => x.UsersModule);
 
 const routes: Routes = [
+  // update
  
   // { path: 'users', loadChildren: usersModule },
 
