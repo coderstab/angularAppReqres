@@ -14,13 +14,12 @@ const routes: Routes = [
 
   {
     path: '',
-    component: LoginComponentComponent,
+    component: HomeComponentComponent,
     canActivate: [AuthGuard]
   },
   {
     path: 'home',
     component: HomeComponentComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'admin',
