@@ -1,0 +1,32 @@
+<!-- <pre *ngIf="!!wcDatadt"><b>Notice:</b> {{wcDatadt}}</pre> -->
+<ng-container style="padding: 50px;">
+    <div class="conatiner mainDb">
+        <pre *ngIf="!!wcDatadt"><b>Notice:</b> {{wcDatadt}}</pre>
+        <div class="card-columns">
+            <div class="card" *ngFor="let userlist of usersList" [ngStyle]="{'background': getRandomColor()}"
+                style="padding: 15px;">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image">
+                            <img mat-card-image src="{{userlist.avatar}}" width="100%">
+                        </div>
+                        <mat-card-title>{{userlist.first_name}} {{userlist.last_name}}</mat-card-title>
+                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                        <mat-card-subtitle >{{userlist.email}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <br>
+                    <mat-card-content>
+                        <p>
+                            The <b>{{userlist.first_name}}</b> is the smallest of the six original and distinct spitz
+                            breeds of dog from Japan.
+                            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
+                            originally
+                            bred for hunting.
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+</ng-container>

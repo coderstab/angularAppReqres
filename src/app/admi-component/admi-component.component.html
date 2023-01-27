@@ -1,0 +1,64 @@
+<div class="main_content">
+<div class="form-group">
+  <div class='form-inline'>
+    <input type="text" class="form-control" [(ngModel)]="val" placeholder="Add value" />
+    <button class="btn btn-success" (click)="addValue(val)">Add</button>
+  </div>
+</div>
+<hr />
+
+<mat-card>
+  <h2>Enter name and job</h2>
+  <form [formGroup]="addUserForm" (ngSubmit)="saveUserTyped()">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" />
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input matInput placeholder="Job" formControlName="job" />
+    </mat-form-field>
+    <br />
+    <button [disabled]="!addUserForm.valid" mat-raised-button type="submit">
+      Add User
+    </button>
+    <br><br>
+  </form>
+</mat-card>
+<mat-card>
+</mat-card>
+
+<mat-card>
+  <h2>List of Typed Users</h2>
+  <ng-container *ngFor="let user of usersTyped">
+    {{ user.name }} - {{ user.job }} - {{ user.id }} - {{ user.createdAt  | date : 'EEEE, MMMM d, h:mm' }}
+    <br />
+    <div class="button"> </div>
+  </ng-container>
+</mat-card>
+</div>
+
+
+<!-- 
+<ng-container style="padding: 50px;">
+    <div class="conatiner mainDb">
+
+        <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+              <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+              <td mat-cell *matCellDef="let emp">{{ emp[column] }}</td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let emprow; columns: displayedColumns"></tr>
+          </table>
+         
+        <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+    </div>
+
+</ng-container> -->
