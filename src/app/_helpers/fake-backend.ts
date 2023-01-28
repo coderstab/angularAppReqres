@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
-
 import { Role } from '../_models';
 
 const users = [
@@ -33,7 +32,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         // route functions
-
         function authenticate() {
             const { username, password } = body;
             const user = users.find(x => x.username === username && x.password === password);
@@ -55,16 +53,13 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function getUserById() {
             if (!isLoggedIn()) return unauthorized();
-
             // only admins can access other user records
             if (!isAdmin() && currentUser().id !== idFromUrl()) return unauthorized();
-
             const user = users.find(x => x.id === idFromUrl());
             return ok(user);
         }
 
         // helper functions
-
         function ok(body) {
             return of(new HttpResponse({ status: 200, body }))
                 .pipe(delay(500)); // delay observable to simulate server api call

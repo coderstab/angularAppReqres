@@ -24,11 +24,8 @@ export class AdmiComponentComponent implements AfterContentChecked {
 id:any;
   loading = false;
   usersList: any[] = []  ;
-  // dataSource : any[] = [];
-  // users: User[] = [];
   gridColumns = 3;
   dataSourceWithPageSize: any;
-
   displayedColumns: string[] = [
     'id',
     'first_name',
@@ -38,20 +35,13 @@ id:any;
 
   dataSource = new MatTableDataSource<any>(this.usersList);
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
-
    userData: UserData;
    usersData: UserData[] = [];
    usersTyped: UserDataInfo[] = [];
-
-  addUserForm = new FormGroup({
+   addUserForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     job: new FormControl('', [Validators.required]),
   });
-
-
-
-
 
   constructor(private userService: UserService, private sharedService: SharedService) {  
     console.log(this.usersTyped);
@@ -82,41 +72,6 @@ id:any;
         });
       });
   }
-
- 
-
-  
-
-//   ngOnInit():void {
-
-//     this.loading = true;
-//         this.userService.getAll().pipe(first()).subscribe(users => {
-//             this.loading = false;
-//             this.users = users;
-//             console.log('data response 1 ', this.users);
-//         });
-
-//         this.userService.getUsers('users?page=1').subscribe(res => {
-//           this.usersList = res.data;
-//           this.dataSource = res.data;
-//           console.log('data response', this.usersList);
-//       });
-
-
-// }
-
-
-
-ngAfterViewInit() {
-  this.dataSource.paginator = this.paginator;
-}
-
-
-//  getRandom Color
-// getRandomColor() {
-//   var color = Math.floor(0x1000000 * Math.random()).toString(16);
-//   return '#' + ('000010' + color).slice(-6);
-// }
 
 ngAfterContentChecked() {
   this.comp1Val = this.sharedService.comp1Val;
