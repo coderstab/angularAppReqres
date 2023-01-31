@@ -13,6 +13,7 @@ import { MaterialModule } from './material.module';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { fakeBackendProvider } from './_helpers';
 import { SharedService } from './_services';
+import { DataPageComponent } from './data-page/data-page.component';
 // import {CustomDatePipe} from './customPipe/customDate.pipe'
 // import { UserComponent } from './components/user/user.component';
 
@@ -23,6 +24,7 @@ import { SharedService } from './_services';
     LoginComponentComponent,
     AdmiComponentComponent,
     HomeComponentComponent,
+    DataPageComponent,
     // CustomDatePipe
    
   ],

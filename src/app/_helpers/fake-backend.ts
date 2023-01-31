@@ -5,7 +5,7 @@ import { delay, materialize, dematerialize } from 'rxjs/operators';
 import { Role } from '../_models';
 
 const users = [
-    { id: 1, username: 'admin', password: 'admin@980', firstName: 'Admin', lastName: 'User', role: Role.Admin },
+    { id: 1, username: 'mod', password: 'admin@980', firstName: 'Admin', lastName: 'User', role: Role.Moderator },
     { id: 2, username: 'user', password: 'admin@980', firstName: 'Normal', lastName: 'User', role: Role.User }
 ];
 
@@ -81,7 +81,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         function isAdmin() {
-            return isLoggedIn() && currentUser().role === Role.Admin;
+            return isLoggedIn() && currentUser().role === Role.Moderator;
         }
 
         function currentUser() {
